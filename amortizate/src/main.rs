@@ -40,5 +40,6 @@ fn amortize(loan_amount: f64, interest: f64, loan_term: i32, yearly_payments: i3
     println!("Payment: ${:.2}", payment_amount);
     println!("Total Paid: ${:.2}", payment_amount * totpay);
     println!("Total Interest: ${:.2}", (payment_amount * totpay) - loan_amount);
+    println!("All Done!");
 }
 
