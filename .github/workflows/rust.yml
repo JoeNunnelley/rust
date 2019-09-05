@@ -14,6 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build
-      run: cargo build --verbose --manifest-path amortize
+      run: cargo build --verbose --manifest-path amortize/Cargo.toml
     - name: Run tests
-      run: cargo test --verbose --manifest-path amortize
+      run: cargo test --verbose --manifest-path amortize/Cargo.toml
