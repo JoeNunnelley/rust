@@ -1,0 +1,55 @@
+
+Showing logs for build [32mjoenunnelley-rust-pr-2-serverle-8xvlh-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-89csl[0m
+{"level":"warn","ts":1580943940.813727,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1580943940.8140085,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mjoenunnelley-rust-pr-2-serverle-8xvlh-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-vb28f[0m
+{"level":"warn","ts":1580943941.1442037,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1580943941.145182,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mjoenunnelley-rust-pr-2-serverle-8xvlh-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mjoenunnelley-rust-pr-2-serverle-8xvlh-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-joenunnelley-rust-pr-2-serverle-8xvlh-m4292[0m
+{"level":"warn","ts":1580943946.19211,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1580943946.6292763,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/************/rust.git @ master in path /workspace/source"}
+
+Showing logs for build [32mjoenunnelley-rust-pr-2-serverle-8xvlh-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:35cda17a8e3455f7e841235d1942d3ef05f2b075,2:721afad9316ca1fb58c44d3f3e12fd9e4691a81b
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 721afad9316ca1fb58c44d3f3e12fd9e4691a81b: 35cda17a8e3455f7e841235d1942d3ef05f2b075:
+DEBUG: ran git fetch --unshallow origin 721afad9316ca1fb58c44d3f3e12fd9e4691a81b: 35cda17a8e3455f7e841235d1942d3ef05f2b075: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard 35cda17a8e3455f7e841235d1942d3ef05f2b075
+DEBUG: ran git reset --hard 35cda17a8e3455f7e841235d1942d3ef05f2b075 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 721afad9316ca1fb58c44d3f3e12fd9e4691a81b
+DEBUG: ran git merge 721afad9316ca1fb58c44d3f3e12fd9e4691a81b in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 35cda17a8e3455f7e841235d1942d3ef05f2b075..HEAD
+Merged SHA 721afad9316ca1fb58c44d3f3e12fd9e4691a81b with commit message 'add commet' into base branch master
+
+Showing logs for build [32mjoenunnelley-rust-pr-2-serverle-8xvlh-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-rustup[0m
+info: syncing channel updates for 'nightly-x86_64-unknown-linux-gnu'
+info: latest update on 2020-02-05, rust version 1.43.0-nightly (c9290dcee 2020-02-04)
+info: downloading component 'cargo'
+info: downloading component 'clippy'
+info: downloading component 'rust-docs'
+info: downloading component 'rust-std'
+info: downloading component 'rustc'
+info: downloading component 'rustfmt'
+info: installing component 'cargo'
+info: installing component 'clippy'
+info: installing component 'rust-docs'
+info: installing component 'rust-std'
+info: installing component 'rustc'
+info: installing component 'rustfmt'
+info: override toolchain for '/workspace/source' set to 'nightly-x86_64-unknown-linux-gnu'
+
+  nightly-x86_64-unknown-linux-gnu installed - rustc 1.43.0-nightly (c9290dcee 2020-02-04)
+
+
+Showing logs for build [32mjoenunnelley-rust-pr-2-serverle-8xvlh-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-cargo-install[0m
+error: `/workspace/source` is not a crate root; specify a crate to install from crates.io, or use --path or --git to specify an alternate source
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-cargo-install'. The execution of the pipeline has stopped.[0m
