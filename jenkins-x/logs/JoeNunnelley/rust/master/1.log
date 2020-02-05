@@ -1,0 +1,46 @@
+
+Showing logs for build [32mjoenunnelley-rust-master-5772x-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-jv2tx[0m
+{"level":"warn","ts":1580943630.6546147,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1580943630.6548736,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mjoenunnelley-rust-master-5772x-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-mjlb9[0m
+{"level":"warn","ts":1580943631.679963,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1580943631.681677,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mjoenunnelley-rust-master-5772x-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mjoenunnelley-rust-master-5772x-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-joenunnelley-rust-master-5772x-dm29r[0m
+{"level":"warn","ts":1580943670.7307055,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1580943671.1382246,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/************/rust.git @ v0.0.1 in path /workspace/source"}
+
+Showing logs for build [32mjoenunnelley-rust-master-5772x-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:35cda17a8e3455f7e841235d1942d3ef05f2b075
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mjoenunnelley-rust-master-5772x-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mjoenunnelley-rust-master-5772x-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-rustup[0m
+info: syncing channel updates for 'nightly-x86_64-unknown-linux-gnu'
+info: latest update on 2020-02-05, rust version 1.43.0-nightly (c9290dcee 2020-02-04)
+info: downloading component 'cargo'
+info: downloading component 'clippy'
+info: downloading component 'rust-docs'
+info: downloading component 'rust-std'
+info: downloading component 'rustc'
+info: downloading component 'rustfmt'
+info: installing component 'cargo'
+info: installing component 'clippy'
+info: installing component 'rust-docs'
+info: installing component 'rust-std'
+info: installing component 'rustc'
+info: installing component 'rustfmt'
+info: override toolchain for '/workspace/source' set to 'nightly-x86_64-unknown-linux-gnu'
+
+  nightly-x86_64-unknown-linux-gnu installed - rustc 1.43.0-nightly (c9290dcee 2020-02-04)
+
+
+Showing logs for build [32mjoenunnelley-rust-master-5772x-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-cargo-install[0m
+error: `/workspace/source` is not a crate root; specify a crate to install from crates.io, or use --path or --git to specify an alternate source
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-cargo-install'. The execution of the pipeline has stopped.[0m
