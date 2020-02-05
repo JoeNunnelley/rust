@@ -1,5 +1,6 @@
 use std::io;
 
+// This will amortize a value
 fn main() {
     println!("Let's Amortize!!");
     println!("Loan Amount:");
