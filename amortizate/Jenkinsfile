@@ -1,0 +1,29 @@
+#!/usr/bin/env groovy
+
+pipeline {
+  options {
+    timeout(time: 60, unit: 'MINUTES')
+    ansiColor('xterm')
+  }
+  agent {
+    docker {
+      image 'rust:latest'
+      args '-v /etc/passwd:/etc/passwrd'
+    }
+  }
+
+  stages {
+    stage('Setup') {
+      steps {
+        checkout scm
+      }
+    }
+    stage('Build') {
+      steps {
+        script {
+          echo sh(returnStdout: true, script: "cargo build")
+        }
+      }
+    }
+  }
+}
