@@ -6,9 +6,26 @@ pipeline {
     ansiColor('xterm')
   }
   agent {
-    docker {
-      image 'rust:latest'
-      args '-v /etc/passwd:/etc/passwrd'
+    kubernetes {
+      yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+   kube-worker: rustbuilder
+spec:
+  containers:
+  - name: rust
+    image: rust:alpine
+    command:
+    - cat
+    tty: true
+  - name: busybox
+    image: busybox
+    command:
+    - cat
+    tty: true
+"""
     }
   }
 
