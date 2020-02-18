@@ -6,9 +6,9 @@ pipeline {
     ansiColor('xterm')
   }
   agent {
-        docker { image 'rust:alpine' }
-    }
+    docker { image 'rust:alpine' }
   }
+
 
   stages {
     stage('Setup') {
