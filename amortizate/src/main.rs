@@ -26,6 +26,7 @@ fn main() {
     amortize(_loan_amount, _interest, _loan_term, _yearly_payments);
 }
 
+// function to do the amortization
 fn amortize(loan_amount: f64, interest: f64, loan_term: i32, yearly_payments: i32) {
     println!("Loan Amount: {}", loan_amount);
     println!("Interest Rate: {}", interest);
