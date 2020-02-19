@@ -10,7 +10,7 @@ pipeline {
             filename 'Dockerfile'
             dir '.'
             args "-t amortize-pr:$BUILD_NUMBER"
-            registry "joenunnelley/docker-test"
+            registryUrl "https://hub.docker.com/repository/docker/joenunnelley/docker-test"
             registryCredentialsId 'dockerhub'
         }
     }
