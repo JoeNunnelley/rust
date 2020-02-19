@@ -1,16 +1,21 @@
 #!/usr/bin/env groovy
 
 pipeline {
-  options {
-    timeout(time: 60, unit: 'MINUTES')
-    ansiColor('xterm')
-  }
- agent { dockerfile true }
- stages {
-   stage('Test') {
-     steps {
-       sh 'echo testing'
-     }
-   }
- }
+    options {
+        timeout(time: 60, unit: 'MINUTES')
+        ansiColor('xterm')
+    }
+    agent { dockerfile true }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'echo testing'
+            }
+        }
+        stage('Push Image') {
+            docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                docker.push("${env.BUILD_NUMBER}")
+                docker.push("latest")
+        }
+    }
 }
