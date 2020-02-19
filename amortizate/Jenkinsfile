@@ -20,8 +20,8 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                sh "docker build -f Dockerfile -t $registry:$BUILD_NUMBER"
-                sh "docker build -f Dockerfile -t $registry:latest"
+                sh "docker build . -t $registry:$BUILD_NUMBER"
+                sh "docker build . -t $registry:latest"
             }
         }
         stage('Test') {
