@@ -5,23 +5,12 @@ pipeline {
     timeout(time: 60, unit: 'MINUTES')
     ansiColor('xterm')
   }
-  agent {
-    docker { image 'rust:alpine' }
-  }
-
-
-  stages {
-    stage('Setup') {
-      steps {
-        checkout scm
-      }
-    }
-    stage('Build') {
-      steps {
-        script {
-          echo sh(returnStdout: true, script: "cargo build")
-        }
-      }
-    }
-  }
+ agent { dockerfile true }
+ stages {
+   stage('Test') {
+     steps {
+       sh 'echo testing'
+     }
+   }
+ }
 }
