@@ -9,7 +9,6 @@ pipeline {
         dockerfile {
             filename 'Dockerfile'
             dir '.'
-            label "amortize-dev"
             registryUrl 'https://hub.docker.com'
             registryCredentialsId 'dockerhub'
         }
