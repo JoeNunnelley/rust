@@ -5,17 +5,26 @@ pipeline {
         timeout(time: 60, unit: 'MINUTES')
         ansiColor('xterm')
     }
-    agent { dockerfile true }
+    agent { 
+        dockerfile {
+            filename 'Dockerfile'
+            dir '.'
+            label "amortize-dev"
+            registryUrl 'https://hub.docker.com'
+            registryCredentialsId 'dockerhub'
+        }
+    }
     stages {
         stage('Test') {
             steps {
                 sh 'echo testing'
             }
         }
-        stage('Push Image') {
-            docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                docker.push("${env.BUILD_NUMBER}")
-                docker.push("latest")
+        stage('Push To Registry') {
+            steps {
+                script {
+                    docker.build registry + ":$BUILD_NUMBER"
+                }
             }
         }
     }
