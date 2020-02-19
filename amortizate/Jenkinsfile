@@ -9,8 +9,9 @@ pipeline {
         dockerfile {
             filename 'Dockerfile'
             dir '.'
-            registryUrl 'https://hub.docker.com'
-            registryCredentialsId 'dockerhub'
+            args "-t amortize-pr:${env.BUILDNUM}"
+//            registryUrl 'https://hub.docker.com'
+//            registryCredentialsId 'dockerhub'
         }
     }
     stages {
@@ -21,8 +22,8 @@ pipeline {
         }
         stage('Push To Registry') {
             steps {
-                script {
-                    docker.build registry + ":$BUILD_NUMBER"
+                withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+                    sh "docker push amortize-pr:${env.BUILDNUM}"
                 }
             }
         }
