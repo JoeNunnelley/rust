@@ -23,7 +23,9 @@ fn main() {
     io::stdin().read_line(&mut yearly_payments).expect("Failed to read input");
     let _yearly_payments: i32 = yearly_payments.trim().parse().expect("Not a number");
 
-    amortize(_loan_amount, _interest, _loan_term, _yearly_payments);
+    loop {
+        amortize(_loan_amount, _interest, _loan_term, _yearly_payments);
+    }
 }
 
 fn amortize(loan_amount: f64, interest: f64, loan_term: i32, yearly_payments: i32) {
